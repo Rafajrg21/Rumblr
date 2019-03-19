@@ -1,9 +1,32 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <ion-card class="blueish" style="top: 10%">
+    <ion-card-header class="center">
+      Login to Rumblr
+    </ion-card-header>
 
-<ion-content padding>
-    <ion-button (click)="navTabs()" expand="block">Navigate to tabs</ion-button>
+    <ion-card-content style="--border-radius: 10px;">
+      <ion-list class="blueish" lines="no-lines">
+      <!-- Username input -->
+        <ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      <!-- Password input -->
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+      <!-- Password change option -->
+      <br>  
+      <!-- Login btn -->        
+        <ion-button color="secondary" expand="block" (click)="navTabs()">LOGIN</ion-button>
+        <p class="center" style="font-size: 14px"> <sub>Forgot password? <a>Change password</a> </sub> </p>
+      </ion-list>
+      <p class="center" style="font-size: 16px">OR</p>
+      <ion-button color="dark" expand="block" fill="outline">
+        <div>Create a new Account!</div>
+      </ion-button>
+      
+    </ion-card-content>
+  </ion-card>
 </ion-content>
