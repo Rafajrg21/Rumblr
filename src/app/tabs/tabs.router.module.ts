@@ -42,10 +42,15 @@ const routes: Routes = [
     ]
   },
   {
-    path: '',
-    redirectTo: '/tabs/home',
-    pathMatch: 'full'
-  }
+    path: 'post',
+    children: [
+      {
+        path: '',
+        loadChildren: '../single-post/single-post.module#SinglePostPageModule'
+      }
+    ]
+  },
+
 ];
 
 @NgModule({

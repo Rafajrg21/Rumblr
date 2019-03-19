@@ -1,124 +1,28 @@
 <ion-content>
-    <ion-card class="user-card">
-        <ion-img src="/assets/header.jpg"></ion-img>
-        <ion-card-header>
-          <img src="/assets/avatar.jpg" alt="Avatar" class="avatar"> 
-          <ion-card-title>Username</ion-card-title>
-          <button>Edit profile</button>
-          <ion-card-subtitle>user_mail</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          <p>Bio Free your mind.</p>
-        </ion-card-content>
-      </ion-card>
-      <ion-list appAnimateItems>
-          <ion-item>
-              <ion-thumbnail item-start>
-                <img src="/assets/avatar.jpg">
-              </ion-thumbnail>
-              <h2>Rafa</h2>
-              <p>Esto es un twit de ejemplo • 2019</p>
-              <app-animated-like></app-animated-like>
-              <button ion-button item-end>Share...</button>
-            </ion-item>
-            <ion-item>
-                <ion-thumbnail item-start>
-                  <img src="/assets/avatar.jpg">
-                </ion-thumbnail>
-                <h2>Rafa</h2>
-                <p>Esto es un twit de ejemplo • 2019</p>
-                <button ion-button clear item-end>Like</button>
-                <button ion-button item-end>Share...</button>
-              </ion-item>
-              <ion-item>
-                  <ion-thumbnail item-start>
-                    <img src="/assets/avatar.jpg">
-                  </ion-thumbnail>
-                  <h2>Rafa</h2>
-                  <p>Esto es un twit de ejemplo • 2019</p>
-                  <button ion-button clear item-end>Like</button>
-                  <button ion-button item-end>Share...</button>
-                </ion-item>
-                <ion-item>
-                    <ion-thumbnail item-start>
-                      <img src="/assets/avatar.jpg">
-                    </ion-thumbnail>
-                    <h2>Rafa</h2>
-                    <p>Esto es un twit de ejemplo • 2019</p>
-                    <button ion-button>Like</button>
-                    <button ion-button item-end>Share...</button>
-                  </ion-item>
-                  <ion-item>
-                      <ion-thumbnail item-start>
-                        <img src="/assets/avatar.jpg">
-                      </ion-thumbnail>
-                      <h2>Rafa</h2>
-                      <p>Esto es un twit de ejemplo • 2019</p>
-                      <button ion-button>Like</button>
-                      <button ion-button item-end>Share...</button>
-                    </ion-item>
-                    <ion-item>
-                        <ion-thumbnail item-start>
-                          <img src="/assets/avatar.jpg">
-                        </ion-thumbnail>
-                        <h2>Rafa</h2>
-                        <p>Esto es un twit de ejemplo • 2019</p>
-                        <button ion-button>Like</button>
-                        <button ion-button item-end>Share...</button>
-                      </ion-item>
-                      <ion-item>
-                          <ion-thumbnail item-start>
-                            <img src="/assets/avatar.jpg">
-                          </ion-thumbnail>
-                          <h2>Rafa</h2>
-                          <p>Esto es un twit de ejemplo • 2019</p>
-                          <button ion-button>Like</button>
-                          <button ion-button item-end>Share...</button>
-                        </ion-item>
-                        <ion-item>
-                            <ion-thumbnail item-start>
-                              <img src="/assets/avatar.jpg">
-                            </ion-thumbnail>
-                            <h2>Rafa</h2>
-                            <p>Esto es un twit de ejemplo • 2019</p>
-                            <button ion-button>Like</button>
-                            <button ion-button item-end>Share...</button>
-                          </ion-item>
-                          <ion-item>
-                              <ion-thumbnail item-start>
-                                <img src="/assets/avatar.jpg">
-                              </ion-thumbnail>
-                              <h2>Rafa</h2>
-                              <p>Esto es un twit de ejemplo • 2019</p>
-                              <button ion-button>Like</button>
-                              <button ion-button item-end>Share...</button>
-                            </ion-item>
-                            <ion-item>
-                                <ion-thumbnail item-start>
-                                  <img src="/assets/avatar.jpg">
-                                </ion-thumbnail>
-                                <h2>Rafa</h2>
-                                <p>Esto es un twit de ejemplo • 2019</p>
-                                <button ion-button>Like</button>
-                                <button ion-button item-end>Share...</button>
-                              </ion-item>
-                              <ion-item>
-                                  <ion-thumbnail item-start>
-                                    <img src="/assets/avatar.jpg">
-                                  </ion-thumbnail>
-                                  <h2>Rafa</h2>
-                                  <p>Esto es un twit de ejemplo • 2019</p>
-                                  <button ion-button>Like</button>
-                                  <button ion-button item-end>Share...</button>
-                                </ion-item>
-                                <ion-item>
-                                    <ion-thumbnail item-start>
-                                      <img src="/assets/avatar.jpg">
-                                    </ion-thumbnail>
-                                    <h2>Rafa</h2>
-                                    <p>Esto es un twit de ejemplo • 2019</p>
-                                    <button ion-button>Like</button>
-                                    <button ion-button item-end>Share...</button>
-                                  </ion-item>
-      </ion-list>
+
+  <ion-card class="user-card">
+    <ion-img src="/assets/header.jpg"></ion-img>
+    <ion-card-header>
+      <img src="/assets/avatar.jpg" alt="Avatar" class="avatar">
+      <ion-card-title>Username</ion-card-title>
+      <button>Edit profile</button>
+      <ion-card-subtitle>user_mail</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Bio Free your mind.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list appAnimateItems>
+    <ion-item *ngFor="let post of posts">
+      <ion-thumbnail item-start>
+        <img src="/assets/avatar.jpg" alt="Avatar" class="avatar">
+      </ion-thumbnail>
+      <p>{{ post.user }}</p>
+      <p>{{ post.post }} • {{ post.fecha }}</p>
+      <app-animated-like></app-animated-like>
+      <button ion-button item-end>Share...</button>
+    </ion-item>
+  </ion-list>
+
 </ion-content>

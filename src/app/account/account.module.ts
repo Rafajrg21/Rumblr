@@ -5,15 +5,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AccountPage } from './account.page';
 
-import { AnimatedLikeComponent } from '../components/animated-like/animated-like.component';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
+    ComponentsModule,
     RouterModule.forChild([{ path: '', component: AccountPage }])
   ],
-  declarations: [AccountPage, AnimatedLikeComponent]
+  declarations: [AccountPage]
 })
 export class AccountPageModule {}

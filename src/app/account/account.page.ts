@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['account.page.scss']
 })
 export class AccountPage {
+  
+  public posts;
 
+  constructor(){
+
+    this.posts = new Array(25).fill({user: 'Rafa', post: 'Esto es un twit de ejemplo', fecha: '2019', avatar: '/assets/avatar.jpg'});
+
+  }
+    
 }
