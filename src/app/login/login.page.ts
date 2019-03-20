@@ -17,4 +17,7 @@ export class LoginPage implements OnInit {
     this.navCtrl.navigateRoot('/app/tabs/home')
   }
 
+  async navSignup(){
+    this.navCtrl.navigateRoot('/signup')
+  }
 }
