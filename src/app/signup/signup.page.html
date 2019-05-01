@@ -8,69 +8,52 @@
         <ion-icon slot="start" name="arrow-back"></ion-icon> Prev
       </ion-button>
     </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-button (click)="next()">Next <ion-icon slot="end" name="arrow-forward"></ion-icon>
-      </ion-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <form [formGroup]="registrationForm">
+      
+      <ion-item>
+        <ion-label position="floating">Username</ion-label>
+        <ion-input formControlName="username" type="text"
+          [class.invalid]="!registrationForm.controls.username.valid && (registrationForm.controls.username.dirty || submitAttempt)">
+        </ion-input>
+      </ion-item>
 
-  <ion-slides #signupSlider pager>
+      <ion-item *ngIf="registrationForm.controls.username.pending">
+        <p>Checking username...</p>
+      </ion-item>
 
-    <ion-slide>
-      <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email" type="email"
+          [class.invalid]="!registrationForm.controls.email.valid && (registrationForm.controls.email.dirty || submitAttempt)">
+        </ion-input>
+      </ion-item>
 
-      <ion-list lines="none">
+      <ion-item *ngIf="!registrationForm.controls.email.valid  && (registrationForm.controls.email.dirty || submitAttempt)">
+        <p>Please enter a valid email.</p>
+      </ion-item>
 
-        <form [formGroup]="slideOneForm">
-          <ion-item>
-            <ion-label position="floating">Email</ion-label>
-            <ion-input formControlName="email" type="email" [class.invalid]="!slideOneForm.controls.email.valid && (slideOneForm.controls.email.dirty || submitAttempt)"></ion-input>
-          </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input formControlName="password" type="password"
+          [class.invalid]="!registrationForm.controls.email.valid && (registrationForm.controls.email.dirty || submitAttempt)">
+        </ion-input>
+      </ion-item>
 
-          <ion-item *ngIf="!slideOneForm.controls.email.valid  && (slideOneForm.controls.email.dirty || submitAttempt)">
-              <p>Please enter a valid email.</p>
-          </ion-item>
+      <ion-item
+        *ngIf="!registrationForm.controls.password.valid  && (registrationForm.controls.password.dirty || submitAttempt)">
+        <p>Please enter a valid password.</p>
+      </ion-item>
 
-          <ion-item>
-            <ion-label position="floating">Password</ion-label>
-            <ion-input formControlName="password" type="password" [class.invalid]="!slideOneForm.controls.email.valid && (slideOneForm.controls.email.dirty || submitAttempt)"></ion-input>
-          </ion-item>
+      <ion-item>
+        <ion-label position="floating">Bio</ion-label>
+        <ion-textarea formControlName="bio"></ion-textarea>
+      </ion-item>
+    </form>
 
-          <ion-item *ngIf="!slideOneForm.controls.password.valid  && (slideOneForm.controls.password.dirty || submitAttempt)">
-              <p>Please enter a valid password.</p>
-          </ion-item>
-
-        </form>
-      </ion-list>
-    </ion-slide>
-
-    <ion-slide>
-      <ion-list lines="none">
-
-        <form [formGroup]="slideTwoForm">
-
-          <ion-item>
-            <ion-label position="floating">Username</ion-label>
-            <ion-input formControlName="username" type="text" [class.invalid]="!slideTwoForm.controls.username.valid && (slideTwoForm.controls.username.dirty || submitAttempt)"></ion-input>
-          </ion-item>
-
-          <ion-item *ngIf="slideTwoForm.controls.username.pending">
-              <p>Checking username...</p>
-          </ion-item>
-
-          <ion-item>
-            <ion-label position="floating">Bio</ion-label>
-            <ion-textarea formControlName="bio"></ion-textarea>
-          </ion-item>
-
-        </form>
-      </ion-list>
-
-      <ion-button expand="full" color="primary" (click)="save()">Create Account!</ion-button>
-    </ion-slide>
-  </ion-slides>
+    <ion-button expand="full" (click)="save(registrationForm)">Create Account!</ion-button>
 
 </ion-content>

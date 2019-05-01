@@ -1,14 +1,11 @@
+
+ion-content {
+    --background: linear-gradient(to bottom right, #49b4d4, #4b49d4);
+}
+
 p {
     font-size: 0.8em;
     color: #d2d2d2;
-}
-
-ion-slides {
-	height: 100%;
-}
-
-ion-slide {
-    display: block;
 }
 
 ion-label, .select-text {
@@ -18,3 +15,12 @@ ion-label, .select-text {
 .invalid {
     border: 1px solid #ea6153;
 }
+
+ion-item {
+    --background: rgba(232,230,232, 0.8px);
+}
+
+ion-button{
+    --background: #0f367ab6;
+}
+

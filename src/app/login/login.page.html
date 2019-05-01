@@ -5,23 +5,26 @@
     </ion-card-header>
 
     <ion-card-content style="--border-radius: 10px;">
-      <ion-list class="blueish" lines="no-lines">
-      <!-- Username input -->
-        <ion-item>
-          <ion-label position="floating">Username</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-      <!-- Password input -->
-        <ion-item>
-          <ion-label position="floating">Password</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
-      <!-- Password change option -->
-      <br>  
-      <!-- Login btn -->        
-        <ion-button color="secondary" expand="block" (click)="navTabs()">LOGIN</ion-button>
-        <p class="center" style="font-size: 14px"> <sub>Forgot password? <a>Change password</a> </sub> </p>
-      </ion-list>
+      <form #form="ngForm">
+        <ion-list class="blueish" lines="no-lines">
+          <!-- Username input -->
+          <ion-item>
+            <ion-label position="floating">Username</ion-label>
+            <ion-input name="username" type="text" ngModel></ion-input>
+          </ion-item>
+          <!-- Password input -->
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input name="password" type="password" ngModel></ion-input>
+          </ion-item>
+          <br>  
+          <!-- Login btn -->        
+          <ion-button color="secondary" expand="block" (click)="login(form)">LOGIN</ion-button>
+          <!-- Password change option -->
+          <p class="center" style="font-size: 14px"> <sub>Forgot password? <a>Change password</a> </sub> </p>
+        </ion-list>
+      </form>
+      
       <p class="center" style="font-size: 16px">OR</p>
       <ion-button color="dark" expand="block" fill="outline" (click)="navSignup()">
         <div>Create a new Account!</div>

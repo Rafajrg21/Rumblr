@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { AuthService } from '../auth/auth.service';
 import { UsernameValidator } from  '../validators/username';
 import { NavController } from '@ionic/angular';
 
@@ -11,16 +12,13 @@ import { NavController } from '@ionic/angular';
 })
 export class SignupPage implements OnInit {
 
-  @ViewChild('signupSlider') signupSlider;
-
-  public slideOneForm: FormGroup;
-  public slideTwoForm: FormGroup;
+  public registrationForm: FormGroup;
 
   public submitAttempt: boolean = false;
 
-  constructor(public formBuilder: FormBuilder, public navCtrl: NavController) {
+  constructor(private authService: AuthService, public formBuilder: FormBuilder, public navCtrl: NavController) {
 
-    this.slideOneForm = formBuilder.group({
+    this.registrationForm = formBuilder.group({
       email: ['', 
         Validators.compose([
           Validators.maxLength(70), 
@@ -32,10 +30,7 @@ export class SignupPage implements OnInit {
           Validators.required, 
           Validators.minLength(5),
           Validators.pattern('[a-zA-Z0-9]*')])
-      ]
-    });
-
-    this.slideTwoForm = formBuilder.group({
+      ],
       username: ['', 
         Validators.compose([
         Validators.required, 
@@ -43,37 +38,25 @@ export class SignupPage implements OnInit {
         UsernameValidator.checkUsername
       ],
       bio: ['']
-    })
-
-   }
+    });
+  } // End constructor 
 
   ngOnInit() {
   }
 
-  next(){
-    this.signupSlider.slideNext();
-  }
-
   prev(){
-    this.signupSlider.slidePrev();
+    this.navCtrl.navigateRoot('/')
   }
 
-  save(){
+  save(form){
     this.submitAttempt = true;
-
-    if(!this.slideOneForm.valid){
-        this.signupSlider.slideTo(0);
-    } 
-    else if(!this.slideTwoForm.valid){
-        this.signupSlider.slideTo(1);
-    }
-    else {
-        console.log("success!")
-        console.log(this.slideOneForm.value);
-        console.log(this.slideTwoForm.value);
-        this.navCtrl.navigateRoot('/app/tabs/home')
-    }
-
+    form.value = this.registrationForm.value;
+    console.log(form.value)
+    
+    this.authService.register(form.value).subscribe((res) => {
+      console.log("success!")
+      this.navCtrl.navigateRoot('/app/tabs/home')
+    })
   }
 
-}
+} // End class

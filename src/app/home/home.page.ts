@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -7,12 +8,28 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  public posts;
+  public posts = new Array;
+  public url;
 
-  constructor(){
+  constructor(private http: HttpClient){
 
-    this.posts = new Array(50).fill({user: 'Rafa', post: 'Esto es un twit de ejemplo', fecha: '2019', avatar: '/assets/avatar.jpg'});
+    this.url = this.http.get('http://localhost:3000/api/posts');
+    this.url.subscribe((response) => {
+      console.log(response)
 
+      response.forEach(element => {
+        let date = element.createdAt.toDateString;
+        this.posts 
+        .push({
+          post_text: element.post_text, 
+          post_image: element.post_image, 
+          date: date, 
+          user: element.User.username, 
+          avatar: element.User.avatar
+        });
+      });
+    });
+    
   }
 
 }

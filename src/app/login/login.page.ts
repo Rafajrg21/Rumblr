@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,16 +9,20 @@ import { NavController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController, private authService: AuthService) { }
 
   ngOnInit() {
   }
 
-  async navTabs(){
-    this.navCtrl.navigateRoot('/app/tabs/home')
+  login(form){
+    console.log(form.value)
+    this.authService.login(form.value).subscribe((res) => {
+      this.navCtrl.navigateRoot('/app/tabs/home')
+    })
   }
 
   async navSignup(){
     this.navCtrl.navigateRoot('/signup')
   }
+  
 }
