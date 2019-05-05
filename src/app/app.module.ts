@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -18,7 +19,7 @@ import { AnimateItemsDirective } from './directives/animate-items.directive';
 @NgModule({
   declarations: [AppComponent, AnimateItemsDirective],
   entryComponents: [],
-  imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule,
+  imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, HttpModule,IonicModule.forRoot(), AppRoutingModule,
   AuthModule],
   providers: [
     StatusBar,

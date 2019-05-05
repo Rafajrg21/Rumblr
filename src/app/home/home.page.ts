@@ -15,7 +15,7 @@ export class HomePage {
 
     this.url = this.http.get('http://localhost:3000/api/posts');
     this.url.subscribe((response) => {
-      console.log(response)
+      //console.log(response)
 
       response.forEach(element => {
         let date = element.createdAt.toDateString;

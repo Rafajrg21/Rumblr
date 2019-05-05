@@ -1,7 +1,7 @@
 <ion-content>
 
  <ion-list appAnimateItems>
-    
+    <img src="\assets\header.jpg" alt="some image">
     <ion-item *ngFor="let post of posts">
       <ion-thumbnail item-start>
         <img src="{{ post.avatar }}" alt="Avatar" class="avatar">
@@ -11,6 +11,5 @@
       <app-animated-like></app-animated-like>
       <button ion-button item-end>Share...</button>
     </ion-item>
-    <img src="\assets\header.jpg" alt="some image">
   </ion-list>
 </ion-content>
