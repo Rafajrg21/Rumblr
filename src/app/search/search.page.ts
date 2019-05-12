@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-search',
@@ -14,7 +15,7 @@ export class SearchPage {
   public usersRequest;
   public searchBar;
 
-  constructor(private http: HttpClient){ } 
+  constructor(private http: HttpClient, private navCtrl: NavController){ } 
 
   searchUsers(){
 
@@ -23,7 +24,7 @@ export class SearchPage {
         "Content-type": "application/json",
       });
 
-      this.usersUrl = `http://localhost:3000/api/users/${this.searchBar}`;
+      this.usersUrl = `http://192.168.0.109:3000/api/users/${this.searchBar}`;
       console.log(this.usersUrl)
 
       this.usersRequest = this.http.get(this.usersUrl, {headers});
@@ -33,6 +34,7 @@ export class SearchPage {
         data.forEach(user => {
           this.users
           .push({
+            user_id: user.id,
             username: user.username,
             email: user.email, 
             avatar: user.avatar
@@ -42,5 +44,9 @@ export class SearchPage {
         return this.usersRequest
       })
   }// End of function
+
+  goToUser(id){
+    this.navCtrl.navigateRoot(`/user/${id}`);
+  }
 
 }

@@ -13,7 +13,7 @@ import { AuthResponse } from './auth-response';
 
 export class AuthService {
 
-  AUTH_SERVER_ADDRESS: string = 'http://localhost:3000';
+  AUTH_SERVER_ADDRESS: string = 'http://192.168.0.109:3000';
   authSubject = new BehaviorSubject(false);
 
   register(user: User): Observable<AuthResponse> {

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>make-comment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <h2>Post comments</h2>
+    
+    <ion-item *ngFor="let comment of comments">
+        <div class = "card list">
+          <div class = "item item-text-wrap ion-padding ion-text-center" id="card-content">
+            <img src="{{ comment.avatar }}" alt="Avatar" class="avatar"> 
+            <h3> @{{ comment.user }}</h3>
+            <p id="commentText">{{ comment.comment }}</p>
+            <ion-button (click)="deleteComment(this.comment.id, this.comment.user_id)">delete</ion-button>
+          </div>
+       </div>
+      </ion-item>
+
+      
+    <ion-input [(ngModel)]="comment" placeholder="Make a comment" style="background-color: cornflowerblue;"></ion-input>
+    <ion-button (click)="makeNewComment()">Post! <ion-icon name="chatboxes"></ion-icon></ion-button>
+
+    <ion-button (click)="closeModal()">close</ion-button>
+</ion-content>

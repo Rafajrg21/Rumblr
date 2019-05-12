@@ -15,12 +15,16 @@ import { AppComponent } from './app.component';
 
 import { AuthModule } from './auth/auth.module';
 import { AnimateItemsDirective } from './directives/animate-items.directive';
+import { SinglePostPageModule } from './single-post/single-post.module';
+import { EditProfilePageModule } from './edit-profile/edit-profile.module';
+import { MakePostPageModule } from './make-post/make-post.module';
+import { MakeCommentPageModule } from './make-comment/make-comment.module';
 
 @NgModule({
   declarations: [AppComponent, AnimateItemsDirective],
   entryComponents: [],
   imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, HttpModule,IonicModule.forRoot(), AppRoutingModule,
-  AuthModule],
+  AuthModule, SinglePostPageModule, EditProfilePageModule, MakePostPageModule, MakeCommentPageModule],
   providers: [
     StatusBar,
     SplashScreen,

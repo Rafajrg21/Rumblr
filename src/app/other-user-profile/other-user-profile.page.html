@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/app/tabs/home"></ion-back-button>  
+    </ion-buttons>
+    <ion-title>User</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card class="user-card" *ngFor="let user of users">
+        <ion-img src="/assets/header.jpg"></ion-img>
+        <ion-card-header>
+          <img src="{{ user.avatar }}" alt="Avatar" class="avatar">
+          <ion-card-title>{{ user.username }}</ion-card-title>
+          <ion-card-subtitle>{{ user.email }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{ user.bio }}</p>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-list appAnimateItems>
+          <ion-item *ngFor="let post of posts">
+            <div class = "card list">
+              <!-- Content -->
+              <div class = "item item-text-wrap ion-padding ion-text-center" id="card-content">
+                <p id="postText" (click)="displayPost(this.post.id)">{{ post.post_text }}</p>
+                <img src="{{ post.post_image }}" alt="" class="image">
+              </div>
+              <!-- Footer or buttons -->
+              <div class = "item item-divider ion-margin-bottom">
+                <app-animated-like></app-animated-like>
+                <ion-button item-end>Comments <ion-icon name="chatboxes"></ion-icon></ion-button>
+                <ion-button item-end>
+                  <ion-icon name="logo-twitter"></ion-icon>
+                  <ion-icon name="logo-facebook"></ion-icon>
+                  <ion-icon name="logo-whatsapp"></ion-icon>
+                </ion-button>
+              </div>
+           </div>
+          </ion-item>
+        </ion-list>
+
+</ion-content>

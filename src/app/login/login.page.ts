@@ -17,7 +17,7 @@ export class LoginPage implements OnInit {
   login(form){
     console.log(form.value)
     this.authService.login(form.value).subscribe((res) => {
-      this.navCtrl.navigateRoot('/app/tabs/home')
+      this.navCtrl.navigateRoot('/app/tabs/home');
     })
   }
 

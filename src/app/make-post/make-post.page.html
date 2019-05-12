@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>
+        Enter new Post
+      </ion-title>
+      <ion-buttons slot="start">
+        <ion-button (click)="closeModal()">
+          <ion-icon slot="start" name="arrow-back"></ion-icon> Prev
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+  <ion-input [(ngModel)]="text" placeholder="Make a new post" style="background-color: cornflowerblue;"></ion-input>
+  <ion-button (click)="makeNewPost()">Post!</ion-button>
+</ion-content>

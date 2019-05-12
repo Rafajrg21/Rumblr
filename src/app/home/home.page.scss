@@ -14,3 +14,22 @@ ion-item {
   opacity: 0;
   transform: translate3d(20px, 0, 0);
 }
+
+div {
+  width: 250px;
+  border: 0px;
+}
+
+#card-header {
+  background-color: rgba(232,230,232, 0.8px);
+  border-radius: 10px 10px 0px 0px;
+}
+
+#card-content {
+  background-color: rgba(232,230,232, 0.5px);
+  border-radius: 0px 0px 10px 10px;
+}
+
+#new{
+  color: rgb(0, 204, 255);
+}

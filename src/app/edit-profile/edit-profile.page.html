@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>edit-profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-input [(ngModel)]="bio" placeholder="Enter a new bio"></ion-input>
+  <ion-button (click)="editUser(user_id)">Change!</ion-button>
+  <ion-button (click)="closeModal()">close</ion-button>
+</ion-content>

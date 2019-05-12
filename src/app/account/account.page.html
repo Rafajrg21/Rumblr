@@ -5,7 +5,7 @@
     <ion-card-header>
       <img src="{{ user.avatar }}" alt="Avatar" class="avatar">
       <ion-card-title>{{ user.username }}</ion-card-title>
-      <button>Edit profile</button>
+      <button (click)="showPop(this.user.id)">Edit profile</button>
       <ion-card-subtitle>{{ user.email }}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
@@ -14,15 +14,26 @@
   </ion-card>
 
   <ion-list appAnimateItems>
-    <ion-item *ngFor="let post of posts">
-      <ion-thumbnail item-start>
-        <img src="{{ post.avatar }}" alt="Avatar" class="avatar">
-      </ion-thumbnail>
-      <p>{{ post.user }}</p>
-      <p>{{ post.post_text }} • {{ post.date }}</p>
-      <app-animated-like></app-animated-like>
-      <button ion-button item-end>Share...</button>
-    </ion-item>
-  </ion-list>
+      <ion-item *ngFor="let post of posts">
+        <div class = "card list">
+          <!-- Content -->
+          <div class = "item item-text-wrap ion-padding ion-text-center" id="card-content">
+            <p id="postText" (click)="displayPost(this.post.id)">{{ post.post_text }}</p>
+            <img src="{{ post.post_image }}" alt="" class="image">
+          </div>
+          <!-- Footer or buttons -->
+          <div class = "item item-divider ion-margin-bottom">
+            <app-animated-like></app-animated-like>
+            <ion-button item-end>Comments <ion-icon name="chatboxes"></ion-icon></ion-button>
+            <ion-button item-end>
+              <ion-icon name="logo-twitter"></ion-icon>
+              <ion-icon name="logo-facebook"></ion-icon>
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </ion-button>
+          </div>
+       </div>
+
+      </ion-item>
+    </ion-list>
 
 </ion-content>
